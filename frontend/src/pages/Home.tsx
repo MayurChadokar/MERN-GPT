@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { Box, Typography, Button, useMediaQuery, useTheme, Chip } from "@mui/material";
 import { keyframes } from "@mui/system";
-import TypingAnim from "../components/typer/TypingAnim";
 import { BsStars, BsLightningChargeFill, BsArrowRight } from "react-icons/bs";
 import { HiSparkles } from "react-icons/hi";
-import { SiOpenai } from "react-icons/si";
 import { IoMdRocket } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 

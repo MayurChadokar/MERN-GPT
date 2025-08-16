@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { Box, Button, IconButton, Chip } from "@mui/material";
+import { Box, Button, Chip } from "@mui/material";
 import { keyframes } from "@mui/system";
-import Logo from "./shared/Logo";
 import { useAuth } from "../context/AuthContext";
-import NavigationLink from "./shared/NavigationLink";
 import { HiSparkles } from "react-icons/hi";
 import { IoMdPower } from "react-icons/io";
 import { RiLoginCircleLine } from "react-icons/ri";
@@ -17,18 +15,6 @@ const shimmer = keyframes`
   100% { background-position: 1000px 0; }
 `;
 
-const glow = keyframes`
-  0%, 100% { 
-    box-shadow: 0 0 5px rgba(139, 92, 246, 0.5),
-                0 0 20px rgba(139, 92, 246, 0.3),
-                0 0 40px rgba(139, 92, 246, 0.1);
-  }
-  50% { 
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.6),
-                0 0 30px rgba(139, 92, 246, 0.4),
-                0 0 50px rgba(139, 92, 246, 0.2);
-  }
-`;
 
 const float = keyframes`
   0%, 100% { transform: translateY(0px); }

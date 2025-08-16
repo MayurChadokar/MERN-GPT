@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { Box, Avatar, Typography, Chip } from "@mui/material";
 import { keyframes } from "@mui/system";
 import { useAuth } from "../../context/AuthContext";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { BsRobot } from "react-icons/bs";
-import { HiUser } from "react-icons/hi";
 import { BiCodeAlt } from "react-icons/bi";
 
 // Beautiful animations
@@ -36,16 +35,7 @@ const pulse = keyframes`
   50% { transform: scale(1.05); }
 `;
 
-const glow = keyframes`
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4),
-                inset 0 0 20px rgba(139, 92, 246, 0.1);
-  }
-  50% { 
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6),
-                inset 0 0 30px rgba(139, 92, 246, 0.2);
-  }
-`;
+
 
 const shimmer = keyframes`
   0% { transform: translateX(-100%); }
