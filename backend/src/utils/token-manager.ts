@@ -4,8 +4,15 @@ import { COOKIE_NAME } from "./constants.js";
 
 export const createToken = (id: string, email: string, expiresIn: string) => {
   const payload = { id, email };
-  const token = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn,
+  
+  // Ensure JWT_SECRET exists
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error("JWT_SECRET is not defined in environment variables");
+  }
+  
+  const token = jwt.sign(payload, secret, {
+    expiresIn: expiresIn as string,
   });
   return token;
 };
@@ -19,8 +26,15 @@ export const verifyToken = async (
   if (!token || token.trim() === "") {
     return res.status(401).json({ message: "Token Not Received" });
   }
+
+  // Ensure JWT_SECRET exists
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    return res.status(500).json({ message: "JWT secret not configured" });
+  }
+
   return new Promise<void>((resolve, reject) => {
-    return jwt.verify(token, process.env.JWT_SECRET, (err, success) => {
+    return jwt.verify(token, secret, (err, success) => {
       if (err) {
         reject(err.message);
         return res.status(401).json({ message: "Token Expired" });
