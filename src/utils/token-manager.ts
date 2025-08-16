@@ -11,9 +11,7 @@ export const createToken = (id: string, email: string, expiresIn: string) => {
     throw new Error("JWT_SECRET is not defined in environment variables");
   }
   
-  const token = jwt.sign(payload, secret, {
-    expiresIn: expiresIn as string,
-  });
+  const token = jwt.sign(payload, secret, { expiresIn: expiresIn as any });
   return token;
 };
 
